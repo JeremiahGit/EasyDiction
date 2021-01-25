@@ -12,3 +12,7 @@ space::
 		Send ^!space
 	}
 return
+
+
+
+Esc::ExitApp  ;Escape key will exit... place this at the bottom of the script
