@@ -12,23 +12,21 @@ Setup
 
 Features
 ====
-**CustomKeyboard.ahk**
-	- Remaps the keyboard to a custom keyboard layout. Using this is generally not recommended.
+#### CustomKeyboard.ahk
+  * Remaps the keyboard to a custom keyboard layout. Using this is generally not recommended.
 	  
-**EasyDiction.ahk**
-	- `[alt] + [spacebar]` Goes back to the beginning of where you started typing and reads all 
+#### EasyDiction.ahk
+  *  [alt] + [spacebar] Goes back to the beginning of where you started typing and reads all 
 	words typed afterwards.
-	- `[alt] + [F1]` Press this after Microsfot Diction finishes reading. It goes to where
+  *  [alt] + [F1] Press this after Microsfot Diction finishes reading. It goes to where
 	you pressed [alt] + [Spacebar], resets Microsfot Dictios. Allows you to continue typing.
 	
 How to Stop
 ====
 Press Escape on your keyboard to terminate the scripts.
 
-
-
-#AutoHotKey Microsfot Word Easy Diction 
-
+Project Description
+====
 These AutoHotKey scripts are designed for my senior capstone course "Engineering 
 Design and Devolepment". The purpose of these scripts is to help a blind individual 
 using Microsfot Word 365 review what they have typed immediately after they type.
