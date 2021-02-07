@@ -10,8 +10,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 counter := 0
 WaitTime := 0
 !space::
-	counter++ ;Please dont ask why I need to add 2 times
-	counter++ ;Please please please im only ok at scripting
+	counter++
+	counter++
 	SendInput, {Control down}{Shift down}
 	Loop %counter%
 	{
@@ -23,13 +23,6 @@ WaitTime := 0
 	}
 	SendInput, {Control up}{Shift up}
 	send !^{space}
-	;send %waitTime%
-	;sleep (%waitTime%)
-	;SendInput, {Control down}{Shift down}{Right down}
-	;Sleep 50
-	;SendInput, {Control up}{Shift up}{Right up}
-	;send {space}
-	;send !^{space}
 return
 
 ;
