@@ -6,49 +6,58 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 ; Algorithm
 ;
-;
 counter := 0
-WaitTime := 0
+
 !space::
 	counter++
 	counter++
+	counter++
+	waitTime := 0
 	SendInput, {Control down}{Shift down}
 	Loop %counter%
 	{
 		counter--
+		waitTime++
 		SendInput,{Left down}
-		Sleep 100
+		Sleep, 100
 		SendInput, {Left up}
-		Sleep 100
+		Sleep, 100
 	}
 	SendInput, {Control up}{Shift up}
-	send !^{space}
-return
-
-;
-; alt + F1
-; Thiss hotkey is meant to be presseda after the
-; MS Narrator finishes reading whatw as typed
-; !F1 moves the cursor past the last word that was
-; typed and past punctuation. 
-;
-!F1::
-	SendInput, {Control down}{Shift down}{Right down}
-	Sleep 50
-	SendInput, {Control up}{Shift up}{Right up}
+	Sleep, 100
+	SendInput, !^{space}
+	Sleep, (waitTime*750)
+	SendInput, !^{space}
+	
+	SendInput, {right}{Control}{Shift}
 	Sleep, 50
-	Loop 2
-	{
-		SendInput, {Right down}
-		Sleep, 25
-		SendInput, {Right up}
-		Sleep, 25
-	}
-	send {space}
+	SendInput, {right}
+	Sleep, 50
+	SendInput, {Control up}{Shift up}{right up}
+	Sleep, 50
+	SendInput, {right}
+	Sleep, 50
+	SendInput, {right}
+	Sleep, 50
+	SendInput, {space}
+	Send Finish
+
+	SendInput, !^{space}
+	Sleep, 750
+
+	SendInput, {Control down}{Shift down}{right down}
+	Sleep, 50
+	SendInput, {Control up}{Shift up}{right up}
+	Sleep, 50
+	SendInput, {Backspace}
+	Sleep, 50
 	send !^{space}
+	
 return
 
-; Increase counter on these keys
+;; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+;; < < < Increase counter on these keys > > >
+;; <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 space up::
 	send {space}
 	counter += 1
