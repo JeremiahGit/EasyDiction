@@ -23,22 +23,30 @@ counter := 0
 		SendInput, {Left up}
 		Sleep, 100
 	}
+
+	; This next part of the code releases pressed buttons, and starts the
+	; microsoft word diction reader. It also waits for it to finish. 
+	; After that it toggles it off. 
 	SendInput, {Control up}{Shift up}
 	Sleep, 100
 	SendInput, !^{space}
-	Sleep, (waitTime*750)
+	Sleep, (waitTime*650)
 	SendInput, !^{space}
 	
-	SendInput, {right}{Control}{Shift}
-	Sleep, 50
+	; This next part of code will tell the user when the auto reader is
+	; done reading the words that they have typed. The goal is to type and
+	; read the word finish in a split second to alert the user they can 
+	; continue.  RIGHT RIGHT RELEASE GO RIGHT
+	SendInput, {Control down}{Shift down}
+	Sleep, 100
 	SendInput, {right}
-	Sleep, 50
-	SendInput, {Control up}{Shift up}{right up}
-	Sleep, 50
+	Sleep, 100
 	SendInput, {right}
-	Sleep, 50
+	Sleep, 100
+	SendInput, {Control up}{Shift up}
+	Sleep, 100
 	SendInput, {right}
-	Sleep, 50
+	Sleep, 100
 	SendInput, {space}
 	Send Finish
 
