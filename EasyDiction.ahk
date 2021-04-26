@@ -3,11 +3,10 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-;
-; Algorithm
-;
+; Counts space bars
 counter := 0
 
+; Algorithm where all the magic happens
 !space::
 	counter++
 	counter++
@@ -23,20 +22,25 @@ counter := 0
 		SendInput, {Left up}
 		Sleep, 100
 	}
+	
+	;; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ;
+	; This next part of the code releases pressed buttons, and starts the     ;
+	; microsoft word diction reader. It also waits for it to finish.          ;
+	; After that it toggles it off.                                           ;
+	;; <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ;
 
-	; This next part of the code releases pressed buttons, and starts the
-	; microsoft word diction reader. It also waits for it to finish. 
-	; After that it toggles it off. 
 	SendInput, {Control up}{Shift up}
 	Sleep, 100
 	SendInput, !^{space}
 	Sleep, (waitTime*650)
 	SendInput, !^{space}
 	
-	; This next part of code will tell the user when the auto reader is
-	; done reading the words that they have typed. The goal is to type and
-	; read the word finish in a split second to alert the user they can 
-	; continue.  RIGHT RIGHT RELEASE GO RIGHT
+	;; >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ; 
+	; This next part of code will tell the user when the auto reader is      ;
+	; done reading the words that they have typed. The goal is to type and   ;
+	; read the word finish in a split second to alert the user they can      ;
+	; continue.  RIGHT RIGHT RELEASE GO RIGHT                                ;
+	;; <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ;
 	SendInput, {Control down}{Shift down}
 	Sleep, 100
 	SendInput, {right}
@@ -69,7 +73,6 @@ return
 space up::
 	send {space}
 	counter += 1
-;	tooltip hi
 return
 
 Esc::ExitApp  ;Escape key will exit... place this at the bottom of the script
